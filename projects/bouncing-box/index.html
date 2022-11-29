@@ -6,8 +6,8 @@
 	<script src="jquery.min.js"></script>
 	<style>
 		.box {
-			width: 70px;
-			height: 70px;
+			width: 60px;
+			height: 60px;
 			background-color: teal;
 			font-size: 300%;
 			text-align: center;
@@ -61,7 +61,7 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			
+			var myVariable = 10;
 
 			
 			/* 
@@ -70,8 +70,16 @@
 			turn it around! 
 			*/
 			function update() {
-				
-
+				moveBoxTo(10)
+				moveBoxTo(boardWidth = 100);
+				var myVariable = myVariable + 10;
+				var positionX = 0;
+				positionX = 0 + 10;
+				moveBoxTo(positionX);
+				positionX = 10 + 10;
+				moveBoxTo(positionX);
+				positionX = 20 + 10;
+				moveBoxTo = 30 + 10;
 			};
 
 			/* 
@@ -80,7 +88,7 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-				
+				positionX = 0;
 
 
 			};

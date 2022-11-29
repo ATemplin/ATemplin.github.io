@@ -42,7 +42,6 @@
     createCollectable(type.max, 200, 170, 6, 0.7);
     createCollectable(type.grace, 470, 250);
     createCollectable(type.kennedi, 825, 200);
-    createCollectable(type.db, 500, 90);
     // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////
   }
