@@ -26,7 +26,8 @@ var background = function (window) {
         var background;
 
         // ANIMATION VARIABLES HERE:
-        var tree
+        var tree;
+        var buildings = [];
 
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
@@ -54,10 +55,18 @@ var background = function (window) {
             }
 
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-
+            for (var i = 0; i < 5; i++) {
+                var buildingHeight = 300;
+                var building = draw.rect(75, buildingHeight, "red", "grey", 5);
+                building.x = 200 * i;
+                building.y = groundY - buildingHeight;
+                background.addChild(building);
+                buildings.push(building);
+              }
+              
 
             // TODO 4: Part 1 - Add a tree
-            tree = draw.bitmap("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5653372f-c704-4218-b683-1c0147c9040e/dfpeqsm-bdcd9428-5503-4bfd-9c41-bba2dfcf079d.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzU2NTMzNzJmLWM3MDQtNDIxOC1iNjgzLTFjMDE0N2M5MDQwZVwvZGZwZXFzbS1iZGNkOTQyOC01NTAzLTRiZmQtOWM0MS1iYmEyZGZjZjA3OWQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.yFX7l4QbQOHfdEqkz6XO9LzQi0Qu4Nw-oXiAl5d1hbg");
+            tree = draw.bitmap("img/tree.png");
             tree.x = 100;
             tree.y = 100;
             background.addChild(tree);
@@ -75,11 +84,18 @@ var background = function (window) {
             var groundY = ground.y;
 
             // TODO 4: Part 2 - Move the tree!
-            
+            tree.x = tree.x + 1;
 
+            if (tree.x < -200) {
+                tree.x = canvasWidth;
+            }
             // TODO 5: Part 2 - Parallax
+            
+            buildings.x = buildings.x + 1;
 
-
+            if (buildings.x < -200) {
+                buildings.x = canvasWidth;
+            }
         } // end of update function - DO NOT DELETE
 
 
