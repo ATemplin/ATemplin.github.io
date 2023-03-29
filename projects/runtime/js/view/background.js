@@ -62,8 +62,8 @@ var background = function (window) {
                 building.y = groundY - buildingHeight;
                 background.addChild(building);
                 buildings.push(building);
-              }
-              
+            }
+
 
             // TODO 4: Part 1 - Add a tree
             tree = draw.bitmap("img/tree.png");
@@ -90,12 +90,14 @@ var background = function (window) {
                 tree.x = canvasWidth;
             }
             // TODO 5: Part 2 - Parallax
-            
-            buildings.x = buildings.x + 1;
-
-            if (buildings.x < -200) {
-                buildings.x = canvasWidth;
+            for (var i = 0; i < buildings.length; i++) {
+                var eachElement = buildings[i];
+                eachElement.x = eachElement.x + 1;
+                if (eachElement.x < -200) {
+                    eachElement.x = canvasWidth;
+                }
             }
+
         } // end of update function - DO NOT DELETE
 
 
