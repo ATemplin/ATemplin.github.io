@@ -27,6 +27,7 @@ var background = function (window) {
 
         // ANIMATION VARIABLES HERE:
         var tree;
+        var tree2;
         var buildings = [];
 
         // called at the start of game and whenever the page is resized
@@ -37,7 +38,7 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth, canvasHeight = groundY, 'pink');
+            var backgroundFill = draw.rect(canvasWidth, canvasHeight = groundY, "https://www.sleeplessmedia.com/wp-content/uploads/2019/02/homeZpacksForeground.png");
             background.addChild(backgroundFill);
             // TODO: 3 - Add a moon and starfield
             var moon = draw.bitmap("https://www.publicdomainpictures.net/pictures/400000/nahled/vollmond-mond-png-clipart.png");
@@ -55,7 +56,7 @@ var background = function (window) {
             // }
 
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            for (var i = 0; i < 5; ++i) {
+            for (var i = 0; i < 9; ++i) {
                 var buildingHeight = 300;
                 var building = draw.rect(75, buildingHeight, "red", "grey", 5);
                 building.x = 200 * i;
@@ -66,10 +67,15 @@ var background = function (window) {
 
 
             // TODO 4: Part 1 - Add a tree
-            tree = draw.bitmap("img/tree.png");
+            tree = draw.bitmap("img/cool-tree.png");
+            console.log({tree})
             tree.x = 100;
             tree.y = 100;
+            tree.scaleX = 0.2;
+            tree.scaleY = 0.2;
             background.addChild(tree);
+
+           
 
 
         } // end of render function - DO NOT DELETE
@@ -84,7 +90,7 @@ var background = function (window) {
             var groundY = ground.y;
 
             // TODO 4: Part 2 - Move the tree!
-            tree.x = tree.x + -5;
+            tree.x = tree.x + -7;
 
             if (tree.x <= -200) {
                 tree.x = canvasWidth;
@@ -92,10 +98,10 @@ var background = function (window) {
             
             // TODO 5: Part 2 - Parallax
             for (var i = 0; i < buildings.length; i++) {
-                var eachElement = buildings[i];
-                eachElement.x = eachElement.x + 1;
-                if (eachElement.x < -200) {
-                    eachElement.x = canvasWidth;
+                var currentBuilding = buildings[i];
+                currentBuilding.x = currentBuilding.x - 5;
+                if (currentBuilding.x < -200) {
+                    currentBuilding.x = canvasWidth;
                 }
             }
 
