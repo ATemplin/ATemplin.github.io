@@ -4,8 +4,7 @@ var level01 = function (window) {
 
     var draw = window.opspark.draw;
     var createjs = window.createjs;
-
-    window.opspark.runLevelInGame = function(game) {
+        window.opspark.runLevelInGame = function(game) {
         // some useful constants 
         var groundY = game.groundY;
 
@@ -23,25 +22,30 @@ var level01 = function (window) {
         };
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
-        game.setDebugMode(true);
+        game.setDebugMode(false);
 
         // TODO 6 and on go here
         // BEGIN EDITING YOUR CODE HERE
-        var hitZoneSize = 25;
-        var damageFromObstacle = 100;
-        var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
-        
-        sawBladeHitZone.x = 800;
-        sawBladeHitZone.y = 300;
-        game.addGameItem(sawBladeHitZone)
+        function createSawBlade(x, y) {
+            var hitZoneSize = 25;
+            var damageFromObstacle = 10;
+            var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+            
+            sawBladeHitZone.x = x;
+            sawBladeHitZone.y = y;
+            game.addGameItem(sawBladeHitZone)
+    
+            var obstacleImage = draw.bitmap("img/sawblade.png");
+            sawBladeHitZone.addChild(obstacleImage);
 
-        var obstacleImage = draw.bitmap("img/sawblade.png");
-        sawBladeHitZone.addChild(obstacleImage);
-
-
+            obstacleImage.x = -sawBladeHitZone;
+            obstacleImage.y = -sawBladeHitZone;
+        }
         // DO NOT EDIT CODE BELOW HERE
     }
-};
+    
+}
+
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
