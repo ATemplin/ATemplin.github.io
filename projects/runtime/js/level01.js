@@ -28,7 +28,7 @@ var level01 = function (window) {
         // BEGIN EDITING YOUR CODE HERE
         function createSawBlade(xvalue, yvalue) {
             var hitZoneSize = 25;
-            var damageFromObstacle = 10;
+            var damageFromObstacle = 25;
             var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
             
             sawBladeHitZone.x = xvalue;
@@ -37,9 +37,6 @@ var level01 = function (window) {
     
             var obstacleImage = draw.bitmap("img/sawblade.png");
             sawBladeHitZone.addChild(obstacleImage);
-
-            obstacleImage.x = -sawBladeHitZone;
-            obstacleImage.y = -sawBladeHitZone;
         }
         createSawBlade(800,325)
         createSawBlade(600,325)
@@ -59,7 +56,7 @@ var level01 = function (window) {
         enemy.rotationalVelocity = 5;
 
         enemy.onPlayerCollision = function () {
-            game.changeIntegrity(-10)
+            game.changeIntegrity(-10);
         };
 
         enemy.onProjectileCollision = function () {
