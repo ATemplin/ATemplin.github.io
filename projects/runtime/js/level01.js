@@ -44,6 +44,30 @@ var level01 = function (window) {
         createSawBlade(800,325)
         createSawBlade(600,325)
         createSawBlade(1000,325)
+
+        var enemy = game.createGameItem("enemy", 25);
+        var redSquare = draw.rect(75, 75, "black");
+        redSquare.x = -25;
+        redSquare.y = -25;
+        enemy.addChild(redSquare);
+        enemy.x = 800;
+        enemy.y = groundY;
+
+        game.addGameItem(enemy);
+        enemy.velocityX = -3;
+        enemy.velocityY = 0;
+        enemy.rotationalVelocity = 5;
+
+        enemy.onPlayerCollision = function () {
+            game.changeIntegrity(-10)
+        };
+
+        enemy.onProjectileCollision = function () {
+            game.increaseScore(100);
+            enemy.fadeOut();
+        };
+
+        
         // DO NOT EDIT CODE BELOW HERE
     }
     
